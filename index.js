@@ -5,9 +5,10 @@ const path = require("path");
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "public")));
 
-app.get("/", function(req, res){
-    res.render("index");
-});
+app.get("/index", (req, res) => {
+    const devList = ["Backend", "Frontend", "Fullstack"];
+    res.render("index", { titulo: "Blue", devList: devList });
+  });
 app.get("/pagina", function(req, res){
     res.send("pagina 2");
 });
